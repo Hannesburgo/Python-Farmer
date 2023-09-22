@@ -12,16 +12,16 @@ class Plt_Shop ( wx.Frame ):
 		self.m_mgr.SetManagedWindow( self )
 		self.m_mgr.SetFlags(wx.aui.AUI_MGR_DEFAULT)
 
-		plt_choserChoices = [ u"Barley", u"Wheat", u"Hops" ]
-		self.plt_choser = wx.RadioBox( self, wx.ID_ANY, u"Plts", wx.DefaultPosition, wx.DefaultSize, plt_choserChoices, 1, wx.RA_SPECIFY_COLS )
-		self.plt_choser.SetSelection( 1 )
-		self.m_mgr.AddPane( self.plt_choser, wx.aui.AuiPaneInfo() .Top() .CaptionVisible( False ).CloseButton( False ).PinButton( True ).Dock().Resizable().FloatingSize( wx.Size( 133,133 ) ).Floatable( False ).Layer( 1 ) )
-
 		self.plt_buy = wx.Button( self, wx.ID_ANY, u"Buy", wx.Point( -1,-1 ), wx.DefaultSize, 0 )
 		self.m_mgr.AddPane( self.plt_buy, wx.aui.AuiPaneInfo() .Bottom() .CaptionVisible( False ).CloseButton( False ).PinButton( True ).Dock().Resizable().FloatingSize( wx.Size( 90,60 ) ).Floatable( False ).Position( 150 ).Layer( 1 ) )
 
 		self.plt_qnty = wx.SpinCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.SP_ARROW_KEYS, 1, 99, 0 )
 		self.m_mgr.AddPane( self.plt_qnty, wx.aui.AuiPaneInfo() .Bottom() .CaptionVisible( False ).PinButton( True ).Dock().Resizable().FloatingSize( wx.Size( 42,62 ) ).Layer( 1 ) )
+
+		plt_choicerChoices = [ u"Barley", u"Wheat", u"Hops" ]
+		self.plt_choicer = wx.Choice( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, plt_choicerChoices, 0 )
+		self.plt_choicer.SetSelection( 0 )
+		self.m_mgr.AddPane( self.plt_choicer, wx.aui.AuiPaneInfo() .Top() .CaptionVisible( False ).Dock().Resizable().FloatingSize( wx.Size( 124,62 ) ).Layer( 1 ) )
 
 
 		self.m_mgr.Update()

@@ -2,7 +2,7 @@ import wx
 import wx.xrc
 import wx.aui
 
-from plt import Plt
+from classes.plt import Plt
 
 class Lot ( wx.Panel ):
 

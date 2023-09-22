@@ -5,7 +5,8 @@ import wx.aui
 import threading
 import time
 
-from MainFrame import *
+from widgets.Plt_Shop import *
+from widgets.MainFrame import *
 
 app = wx.App(False)
 frame = MainFrame(parent=None)
@@ -20,6 +21,7 @@ def secondPass():
 
 x = threading.Thread(target=secondPass)
 x.start()
+
 
 app.MainLoop()
 

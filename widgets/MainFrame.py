@@ -2,9 +2,9 @@ import wx
 import wx.xrc
 import wx.aui
 
-from plt import Plt
-from Lot import Lot
-from Plt_Shop import Plt_Shop
+from classes.plt import Plt
+from widgets.Lot import Lot
+from widgets.Plt_Shop import Plt_Shop
 
 ###########################################################################
 ## Class MainFrame
@@ -33,7 +33,8 @@ class MainFrame ( wx.Frame ):
 		self.mainFrameHud.shop_button.Bind( wx.EVT_BUTTON, self.openShop )
 		
 	def openShop( self, parent ):
-		self.shop = Plt_Shop(self)	
+		self.shop = Plt_Shop(self)
+		self.shop.Show()
 	# Custom End
 
 	def __del__( self ):
