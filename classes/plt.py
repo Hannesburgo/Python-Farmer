@@ -1,4 +1,4 @@
-from Item import *
+from classes.Item import *
 
 class Plt(Item):
     def __init__(self, name, time, value):

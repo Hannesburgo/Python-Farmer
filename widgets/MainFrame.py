@@ -2,7 +2,6 @@ import wx
 import wx.xrc
 import wx.aui
 
-from classes.plt import Plt
 from widgets.Lot import Lot
 from widgets.Plt_Shop import Plt_Shop
 
@@ -28,9 +27,17 @@ class MainFrame ( wx.Frame ):
 
 		# Custom
 		self.lots = [Lot(self)]
-
+		
+		# HUD Shop Button
 		self.mainFrameHud.shop_button = wx.Button( self.mainFrameHud, wx.ID_ANY, u"Shop", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.mainFrameHud.shop_button.Bind( wx.EVT_BUTTON, self.openShop )
+
+		# HUD Plant Selection
+		plt_choserChoices = [ u"Barley", u"Wheat", u"Hops"]
+
+		self.mainFrameHud.plt_choser = wx.Choice( self.mainFrameHud, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, plt_choserChoices, 0 )
+		self.mainFrameHud.plt_choser.SetSelection( 0 )
+		self.mainFrameHud.plt_choser.Position = [self.mainFrameHud.shop_button.Position[0]+85, 0]
 		
 	def openShop( self, parent ):
 		self.shop = Plt_Shop(self)

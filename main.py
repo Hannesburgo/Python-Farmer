@@ -16,7 +16,7 @@ def secondPass():
     while True:
         for lot in frame.lots:
             if lot.plt != None: 
-                lot.lot_plant(None)
+                lot.plant(None)
         time.sleep(1)
 
 x = threading.Thread(target=secondPass)

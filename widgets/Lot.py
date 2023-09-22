@@ -2,7 +2,7 @@ import wx
 import wx.xrc
 import wx.aui
 
-from classes.plt import Plt
+from classes.Plt import *
 
 class Lot ( wx.Panel ):
 
@@ -34,17 +34,16 @@ class Lot ( wx.Panel ):
 		# Custom End
 
 		# Connect Events
-		self.lot_button.Bind( wx.EVT_BUTTON, self.lot_plant )
+		self.lot_button.Bind( wx.EVT_BUTTON, self.plant )
 
 	def __del__( self ):
 		self.m_mgr.UnInit()
 
 	# Virtual event handlers, override them in your derived class
-	def lot_plant( self, event ):
+	def plant( self, event ):
 		if self.plt == None:
-			self.plt = Plt("Barley", 60)
-			self.lot_progress.Range = 60
-			self.lot_label.Label = "Barley"
+			self.plt = Plt("Barley", 60, 1)
+			self.lot_label.Label = self.plt.name
 		
 		if self.lot_progress.Value >= self.lot_progress.Range:
 			self.plt = None
